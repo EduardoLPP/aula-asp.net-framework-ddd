@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NOTION.Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
@@ -25,6 +26,7 @@ namespace NOTION.Dominio.Interfaces.Repositorios
 
         void Adcione(T objeto);
         void Atualiza(T objeto);
-        void Remova(T objeto); 
+        void Atualize(T objeto);
+        void Remova(Tarefa tarefa);
     }
 }

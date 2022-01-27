@@ -113,8 +113,12 @@
     <Compile Include="Entidades\ListaDeTarefas.cs" />
     <Compile Include="Entidades\Tarefa.cs" />
     <Compile Include="Interfaces\Repositorios\IRepositorio.cs" />
-    <Compile Include="Interfaces\UnidadeDeTrabalho\UnidadeDeTrabalho.cs" />
+    <Compile Include="Interfaces\Repositorios\IRepositorioDeTarefas.cs" />
+    <Compile Include="Interfaces\UnidadeDeTrabalho\IUnidadeDeTrabalho.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\Servico.cs" />
+    <Compile Include="Servicos\ServicoDeTarefa.cs" />
+    <Compile Include="Servicos\ServicoDeListaDeTarefas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

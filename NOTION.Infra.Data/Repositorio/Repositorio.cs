@@ -41,7 +41,7 @@ namespace NOTION.Infra.Data.Repositorio
             this.Contexto.Entry<T>(objeto).State = EntityState.Modified;
         }
 
-        public void Remova(T objeto)
+        public void Atualize(T objeto)
         {
             this.Contexto.Set<T>().Remove(objeto);
         }

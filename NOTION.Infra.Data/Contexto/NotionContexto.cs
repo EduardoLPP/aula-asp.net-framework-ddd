@@ -27,22 +27,24 @@ namespace NOTION.Infra.Data.Contexto
 
         public override int SaveChanges()
         {
-            foreach (var entry in ChangeTracker.Entries().Where(entry =>
-            entry.Entity.GetType().GetProperty("CriadoEm"))) /= null) || 
-            entry.Entity.GetType().GetProperyy("AtualizadoEm") /= null)
+            foreach(var entry in ChangeTracker.Entries().Where(entry => 
+            entry.Entity.GetType().GetProperty("CriadoEm") != null ||
+            entry.Entity.GetType().GetProperty("AtualizadoEm") != null))
             {
-                if (entry().State = EntityState.Added)
+                if(entry.State == EntityState.Added)
                 {
-                    entry().Property("CriadoEm").CurrentValue = DateTime.Now;
-                    entry().Property("AtualizadoEm").CurrentValue = DateTime.Now;
+                    entry.Property("CriadoEm").CurrentValue = DateTime.Now;
+                    entry.Property("AtualizadoEm").CurrentValue = DateTime.Now;
                 }
 
-                if (entry.State = EntityState.Modified)
+                if (entry.State == EntityState.Modified)
                 {
                     entry.Property("CriadoEm").IsModified = false;
                     entry.Property("AtualizadoEm").CurrentValue = DateTime.Now;
                 }
-            } 
+            }
+
+            return SaveChanges();
         }
     }
 }
