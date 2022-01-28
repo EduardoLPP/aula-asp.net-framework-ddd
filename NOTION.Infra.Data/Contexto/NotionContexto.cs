@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NOTION.Infra.Data.ConfiguracoesDeEntidades;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -23,6 +24,10 @@ namespace NOTION.Infra.Data.Contexto
 
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
+
+            modelBuilder.Configurations.Add(new ConfiguracaoDeListaDeTarefas());
+            modelBuilder.Configurations.Add(new ConfiguracaoDeTarefas());
+
         }
 
         public override int SaveChanges()

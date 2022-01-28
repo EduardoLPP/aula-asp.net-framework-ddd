@@ -1,6 +1,7 @@
 ﻿using NOTION.Dominio.Basicos;
 using NOTION.Dominio.Entidades;
 using NOTION.Dominio.Interfaces.IUnidadeDeTrabalho;
+using NOTION.Dominio.Interfaces.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,12 @@ namespace NOTION.Dominio.Servicos
         {
             var repositorio = base.UnidadeDeTrabalho.ObtenhaRepositorio<Tarefa>();
             return repositorio.Obtenha(id);
+        }
+
+        public List<Tarefa> ObtenhaTarefaComplexas()
+        {
+            var repositorio = base.UnidadeDeTrabalho.ObtenhaRepositorio<Tarefa, IRepositorioDeTarefas>();
+            return repositorio.ObtenhaTarefasComplexas().ToList();
         }
 
         public void Adcione(Guid idListaDeTarefas, string descricao, EnumeradorTipoTarefa tipo)
