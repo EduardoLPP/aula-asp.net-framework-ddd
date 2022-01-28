@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace NOTION.Dominio.Servicos
 {
     public class ServicoDeListaDeTarefas : Servico
@@ -13,7 +14,7 @@ namespace NOTION.Dominio.Servicos
         {
         }
 
-        public List<ListaDeTarefas> ObtenhaTodasAsListas()
+        public List<ListaDeTarefas> ObtenhaTodasAsTarefas()
         {
             var repositorio = base.UnidadeDeTrabalho.ObtenhaRepositorio<ListaDeTarefas>();
             return repositorio.Obtenha().ToList();
@@ -25,14 +26,14 @@ namespace NOTION.Dominio.Servicos
             return repositorio.Obtenha(id);
         }
 
-        public void AdcioneListaDeTarefas(string descricao)
+        public void AdicioneListaDeTarefas(string descricao)
         {
-            var lista = new ListaDeTarefas();
+            var lista = new ListaDeTarefas(); 
             lista.Id = Guid.NewGuid();
             lista.Descricao = descricao;
 
             var repositiorio = base.UnidadeDeTrabalho.ObtenhaRepositorio<ListaDeTarefas>();
-            repositiorio.Adcione(lista);
+            repositiorio.Adicione(lista);
         }
 
         public void AtualizeListaDeTarefas(Guid id, string descricao)
@@ -49,8 +50,9 @@ namespace NOTION.Dominio.Servicos
         public void RemovaListaDeTarefas(Guid id)
         {
             var lista = this.ObtenhaListaDeTarefas(id);
-            var repositiorio = base.UnidadeDeTrabalho.ObtenhaRepositorio<ListaDeTarefas>();
-            repositiorio.Atualize(lista);
+
+            var repositorio = base.UnidadeDeTrabalho.ObtenhaRepositorio<ListaDeTarefas>();
+            repositorio.Remova(lista);
 
             base.UnidadeDeTrabalho.SalveAlteracoes();
         }

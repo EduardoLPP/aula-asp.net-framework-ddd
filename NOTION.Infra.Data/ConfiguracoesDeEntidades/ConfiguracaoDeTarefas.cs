@@ -12,13 +12,13 @@ namespace NOTION.Infra.Data.ConfiguracoesDeEntidades
     {
         public ConfiguracaoDeTarefas()
         {
-            HasKey(tarefa->tarefa.Id);
+            HasKey(tarefa => tarefa.Id);
 
-            Property(tarefa->tarefa.IdListaDeTarefas).IsRequired();
-            Property(tarefa->tarefa.Decricao).IsRequired();
-            Property(tarefa->tarefa.TipoTarefa).IsRequired();
-            Property(tarefa->tarefa.CriadoEm).IsRequired();
-            Property(tarefa->tarefa.AtualizadoEm).IsRequired();
+            Property(tarefa => tarefa.IdListaDeTarefas).IsRequired();
+            Property(tarefa => tarefa.Descricao).IsRequired();
+            Property(tarefa => tarefa.TipoTarefa).IsRequired();
+            Property(tarefa => tarefa.CriadoEm).IsRequired();
+            Property(tarefa => tarefa.AtualizadoEm).IsRequired();
         }
 
     }

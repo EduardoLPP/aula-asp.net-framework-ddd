@@ -8,13 +8,14 @@ namespace NOTION.Infra.Data.ConfiguracoesDeEntidades
     {
         public ConfiguracaoDeListaDeTarefas()
         {
-            HasKey(listaDeTarefas->listaDeTarefas.Id);
+            HasKey(listaDeTarefas => listaDeTarefas.Id);
 
-            Property(listaDeTarefas->listaDeTarefas.Descricao).IsRequired();
+            Property(listaDeTarefas => listaDeTarefas.Descricao).IsRequired();
 
-            HasMany(listaDeTarefas->listaDeTarefas.Tarefas)
+            HasMany(listaDeTarefas => listaDeTarefas.Tarefas);
+            HasMany(listaDeTarefas => listaDeTarefas.Tarefas)
                 .WithRequired()
-                .HasForeignKey(tarefa->tarefa.IdListaDeTarefas);
+                .HasForeignKey(tarefa => tarefa.IdListaDeTarefas);
         }
     }
 }

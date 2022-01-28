@@ -7,10 +7,11 @@ using System.Linq;
 
 namespace NOTION.Infra.Data.Contexto
 {
-    public class NotionContexto : DbContext
+    public class NotionContexto : DbContext 
     {
         public NotionContexto() : base("NotionContexto")
         {     
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<NotionContexto, Migrations.Configuration>());   
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

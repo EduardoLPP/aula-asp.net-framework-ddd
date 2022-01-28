@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@Html.Action("Index", "ListaDeTarefas")
+
+<div>
+    <div class="m-20">
+        <h1>Minhas Tarefas</h1>
+        <hr />
+        @Html.Action("Index", "ListaDeTarefas")
+    </div>
+</div>

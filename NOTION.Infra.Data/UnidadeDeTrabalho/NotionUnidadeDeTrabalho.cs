@@ -9,11 +9,11 @@ using NOTION.Dominio.Interfaces.IUnidadeDeTrabalho;
 using NOTION.Dominio.Interfaces.Repositorios;
 using NOTION.Infra.Data.Basicos.Atributos;
 using NOTION.Infra.Data.Contexto;
-using NOTION.Infra.Data.Repositorio;
+using NOTION.Infra.Data.Repositorios;
 
 namespace NOTION.Infra.Data.UnidadeDeTrabalho
 {
-    public class NotionUnidadeDeTraballho : IUnidadeDeTrabalho
+    public class NotionUnidadeDeTrabalho : IUnidadeDeTrabalho
     {
 
         private DbContext Contexto { get; set; }
@@ -22,9 +22,9 @@ namespace NOTION.Infra.Data.UnidadeDeTrabalho
 
         private Dictionary<string, object> DicionarioDeRepositorios { get; set; }
 
-        public NotionUnidadeDeTraballho(NotionContexto context)
+        public NotionUnidadeDeTrabalho(NotionContexto context)
         {
-
+            this.Contexto = context;
         }
 
         public IRepositorio<T> ObtenhaRepositorio<T>() where T : class
@@ -97,7 +97,10 @@ namespace NOTION.Infra.Data.UnidadeDeTrabalho
                 this.Transacao.Dispose();
             }
 
-            if (this.Contexto != null) ;
+            if (this.Contexto != null)
+            {
+                this.Contexto.Dispose();
+            }
         }
 
       

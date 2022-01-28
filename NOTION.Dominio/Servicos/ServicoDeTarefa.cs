@@ -37,7 +37,7 @@ namespace NOTION.Dominio.Servicos
             tarefa.TipoTarefa = tipo;
 
             var repositorio = base.UnidadeDeTrabalho.ObtenhaRepositorio<Tarefa>();
-            repositorio.Adcione(tarefa);
+            repositorio.Adicione(tarefa);
 
             base.UnidadeDeTrabalho.SalveAlteracoes();
         }

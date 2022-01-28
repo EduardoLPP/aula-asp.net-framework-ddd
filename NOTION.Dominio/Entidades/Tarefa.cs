@@ -12,6 +12,6 @@ namespace NOTION.Dominio.Entidades
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizadoEm { get; set; }
 
-
+         
     }
 }
